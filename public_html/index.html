@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Smart Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/view.css" rel="stylesheet" />
+        <link href="css/lamp.css" rel="stylesheet" />
+        <link href="css/bootstrap.css" rel="stylesheet" />
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
+    </head>
+    <body>
+
+        <div class="container-fluid main" id="main">
+
+                <div class="row rowall" id="rowall" >
+                    <div class="col-sm-2 hidden-sm hidden-xs leftside" id="leftside">1</div>
+                    <div class="col-md-8 col-sm-12 center" id="center">
+
+                        <div class="row rowheader" id="rowheader">
+                            <div class="col-md-12 colheader" id="colheader">
+                                <div class="divheader" id="divheader"></div>
+                            </div>
+                        </div>
+
+                        <!--<div class="row rowspace"></div>-->
+
+                        <div class="row  rowbutton" id="rowbutton">
+                            <span class="selectspan">Please, Select Room</span>
+                            <div class="col-xs-12 colselect">
+                                <div class="col-xs-3  ">
+                                    <div class="pad">
+                                    <span>Kitchen</span>
+                                    <br />
+                                    <button type="button" class="roombutton ">Open Room</button>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-3 ">
+                                    <div class="pad">
+                                    <span>Bedroom</span>
+                                    <br />
+                                    <button type="button" class="roombutton ">Open Room</button>
+                                    </div>
+                                </div>
+                                <div class="col-xs-3 ">
+                                    <div class="pad">
+                                    <span>Hall</span>
+                                    <br />
+                                    <button type="button" class="roombutton ">Open Room</button>
+                                    </div>
+                                </div>
+                                <div class="col-xs-3 ">
+                                    <div class="pad">
+                                    <span>Hallway</span>
+                                    <br />
+                                    <button type="button" class="roombutton ">Open Room</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row addrow">
+                            <span class="selectspan" style="font-size: 18px">Add devices to control panel</span>
+                           <div >
+                               <select>
+                                   <option>Conditioning</option>
+                                   <option>Warm Floor</option>
+                                   <option>Frige</option>
+                                   <option>Jalousie</option>
+                                   <option>Lamp</option>
+                                   <option>Radio</option>
+                                   <option>Stove</option>
+                                   <option>Small TV</option>
+                                   <option>TV</option>
+                               </select>
+                               <button type='button' class="addbutton">Add</button>
+                           </div>
+                        </div>
+
+                        <div class="row  rowmain" id="rowmain">
+                            <div class="col-lg-4 col-md-6 col-sm-12 co">
+                                <div class="location">1</div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 co">
+                                <div class="location">2</div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 co">
+                                <div class="location">3</div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 co">
+                                <div class="location"></div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 co">
+                                <div class="location"></div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 co">
+                                <div class="location"></div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 co">
+                                <div class="location"></div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 co">
+                                <div class="location"></div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 co">
+                                <div class="location"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 hidden-sm hidden-xs rightside" id="rightside">3</div>
+                </div>
+        </div>
+        <div class="container-fluid confooter">
+            <div class="row">
+                <div class="col-lg-12 colfooter">Make for Represent</div>
+            </div>
+        </div>
+
+<!--        <form name="rooms">
+            <div class="devdiv">
+                <table class="maintab">
+                    <tr>
+                        <td class="roomtd maintd" colspan="2">
+                            <button type="button" class="roomb">Kitchen</button>
+                            <button type="button" class="roomb">Bedroom</button>
+                            <button type="button" class="roomb">Hall</button>
+                            <button type="button" class="roomb">Hallway</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="devdat maintd" id="first">
+                            <div id="lamp">
+                                <div class="info elem" id="info" align="centr"></div>
+                                <div class="panel elem">
+                                    <table class="lamptab">
+                                        <tr>
+                                            <td colspan="3" class="lampth">Choose spectr of light</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lamptd "><button class="c tb" id="cold">Cold</button></td>
+                                            <td class="lamptd "><button class="n tb" id="neut">Neutral</button></td>
+                                            <td class="lamptd "><button class="w tb" id="warm">Warm</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lamptd cb"></td>
+                                            <td class="lamptd nb"></td>
+                                            <td class="lamptd wb"></td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                                <div class="logo elem"></div>
+                                <div class="on elem"><button class="onoffb" id="on">On</button></div>
+                                <div class="off elem"><button class="onoffb" id="off">Off</button></div>
+                                <div class="oni elem" id="onind"></div>
+                                <div class="offi elem" id="offind"></div>
+                            </div>
+                        </td>
+                        <td class="devdat maintd" id="second">
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>-->
+
+        <script src="./../node_modules/jquery/dist/jquery.js"></script>
+
+
+<!--        <script src="./abstractclass/onoffdevices.js"></script>
+        <script src="./abstractclass/multimediadevices.js"></script>
+        <script src="./abstractclass/lists.js"></script>
+        <script src="./abstractclass/tempdevices.js"></script>
+        <script src="./abstractclass/tempdevicesprog.js"></script>
+
+        <script src="./devices/lamp.js"></script>
+        <script src="./devices/tv.js"></script>
+        <script src="./devices/tvpro.js"></script>
+        <script src="./devices/radio.js"></script>
+        <script src="./devices/jalousie.js"></script>
+        <script src="./devices/floor.js"></script>
+        <script src="./devices/fridge.js"></script>
+        <script src="./devices/conditioning.js"></script>
+
+        <script src="./control.js"></script>-->
+
+        <!--<script src="./lib/bundle.js"></script>-->
+
+
+        <script>
+            "usestrict";
+
+//            let a  = $("#info");
+//            console.dir(a);
+//            let l = new Lamp("L1","lamp");
+//
+//            let v = new Control(l);
+//            v.go();
+//            let t = new Tv("Tv1","tv");
+//            let tp = new TvPro("Tv2","tv");
+//            let r = new Radio("R1","radio",radioList);
+//            let j = new Jalousie("jal", "jalousie");
+//            let f = new Floor("FL","tempfloor");
+//            let fr = new Fridge("fr1", "fridge");
+//            let c = new Conditioning("con1", "conditioning", condList);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "name": "she6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-trans": "./node_modules/.bin/babel ./public_html/src -d ./public_html/lib",
+    "webpack": "./node_modules/.bin/webpack",
+    "webpackw": "./node_modules/.bin/webpack -w",
+    "lite": "./node_modules/.bin/lite-server"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "lite-server": "^2.3.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-react": "^6.24.1",
+    "bootstrap-loader": "^2.0.0",
+    "html-loader": "^0.4.5",
+    "webpack": "^2.4.1"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "author": "",
+  "license": "ISC"
+}
