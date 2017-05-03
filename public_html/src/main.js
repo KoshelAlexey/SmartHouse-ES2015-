@@ -1,5 +1,11 @@
 "use strict";
 
+import React from "react";
+import ReactDOM from "react-dom";
+
+import OnOffButton from "./subcomponents/onoffbutton";
+import LampReact from "./components/lamp";
+
 import {radioList} from "./abstractclass/lists";
 import {condList} from "./abstractclass/lists";
 import {stoveList} from "./abstractclass/lists";
@@ -12,7 +18,9 @@ import {Radio} from "./devices/radio";
 import {Stove} from "./devices/stove";
 import {Tv} from "./devices/tv";
 import {TvPro} from "./devices/tvpro";
-import {Control} from "./control";
+
+//import {Control} from "./control";
+
 import {Farm} from "./farm/farm";
 
 import {kitchen} from "./abstractclass/collections";
@@ -31,8 +39,9 @@ import {hallway} from "./abstractclass/collections";
 
             let l = new Lamp("L1","lamp");
 
-            let v = new Control(l);
-            v.go();
+//            let v = new Control(l);
+//            v.go();
+
             let t = new Tv("Tv1","tv");
             let tp = new TvPro("Tv2","tv");
             let r = new Radio("R1","radio",radioList);
@@ -42,4 +51,4 @@ import {hallway} from "./abstractclass/collections";
             let c = new Conditioning("con1", "conditioning", condList);
 
 
-import React from "react";
+ReactDOM.render(<LampReact lamp={l.fullInfo}/>, document.getElementById('rowmain'));

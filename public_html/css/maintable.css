@@ -1,0 +1,24 @@
+td{
+    border: 1px solid black;
+
+}
+
+table{
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    text-align: center;
+}
+#status{
+    width: 182px;
+}
+#name{
+    width: 65px;
+    height: 2px;
+}
+#icon{
+    height: 70px;
+}
+#on{
+    height: 45px;
+}

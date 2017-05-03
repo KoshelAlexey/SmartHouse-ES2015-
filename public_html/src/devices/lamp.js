@@ -7,7 +7,8 @@ export class Lamp extends OnOffDevices {
         super(name, type);
         this._lightTemp = "Neutral";
     };
-    get fullInfo() {        
+    get fullInfo() {
+        super.fullInfo;
         this._fullInfo.LightTemp = this._lightTemp;
         return this._fullInfo;
     };
@@ -15,13 +16,13 @@ export class Lamp extends OnOffDevices {
         return _lightTemp;
     };
     setColdTemp() {
-        this._lightTemp = "Cold";  
+        this._lightTemp = "Cold";
     };
     setNeutralTemp() {
-        this._lightTemp = "Neutral";  
+        this._lightTemp = "Neutral";
     };
     setWarmTemp() {
         this._lightTemp = "Warm";
     };
-    
+
 };

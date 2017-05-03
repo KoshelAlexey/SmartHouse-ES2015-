@@ -45,7 +45,7 @@
 
 html,body{
     margin: 0px;
-    
+
 }
 
 .main{
@@ -79,7 +79,7 @@ html,body{
     background-image: url(../jpg/center2.JPG);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center; 
+    background-position: center;
     min-width: 661px;
     width: 100%;
 }
@@ -95,7 +95,7 @@ html,body{
     width: 100%;
 }
 .divheader{
-    
+
     display: table-cell;
     text-align: center;
     vertical-align: middle;
@@ -115,7 +115,7 @@ html,body{
 .rowspace{
     height: 50px;
 }
-.rowbutton{    
+.rowbutton{
     text-align: center;
     /*border:1px solid black;*/
 /*    ?height: 100px;*/
@@ -140,14 +140,14 @@ html,body{
     text-shadow:0px 0px 3px black;
     text-align: center;
     color:white;
-    /*margin-top: 37px;*/  
+    /*margin-top: 37px;*/
 }
 .roombutton{
     height: 100%;
     color:black;
     /*width:70px;*/
     text-align: left;
-    border-radius: 5px;  
+    border-radius: 5px;
     /*float: left;*/
 }
 .addrow{
@@ -159,21 +159,20 @@ html,body{
 .rowmain{
     border: 3px solid whitesmoke;
     border-radius: 20px;
-    background-image:  url('../jpg/headerback2.PNG')
-   
+    background-image:  url('../jpg/headerback2.PNG');
+    padding: 15px 0px;
 }
 
 .location{
+
     background-color: gold;
     margin: auto auto 15px auto;
-    height: 120px;
+    height:136px;
     width: 250px;
 }
-.co{
-    margin: 15px 0px 0px 0px;
-}
+
 .confooter{
-    
+
     height: 40px;
     clear: both;
     background-color: #666666;
@@ -181,7 +180,7 @@ html,body{
     text-align: center;
     font-weight: bold;
     font-size: 16px;
-      
+
 }
 .colfooter{
     padding-top: 10px;

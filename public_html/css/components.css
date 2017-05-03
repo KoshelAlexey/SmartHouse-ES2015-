@@ -1,0 +1,16 @@
+.OnButton{
+    height: 45px;
+    width: 45px;
+    margin: auto;
+    background: url("../jpg/onbutton.JPG");
+    background-position: center;
+    border-radius: 50%;
+}
+.OffButton{
+    height: 45px;
+    width: 45px;
+    margin: auto;
+    background: url("../jpg/offbutton.JPG");
+    background-position: center;
+    border-radius: 50%;
+}
