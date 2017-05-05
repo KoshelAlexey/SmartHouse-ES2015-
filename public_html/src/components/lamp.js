@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import MainTRable from "../components/maintable";
 
-import OnOffButton from "../subcomponents/onoffbutton";
+//import OnOffButton from "../subcomponents/onoffbutton";
 
 export default class LampReact extends React.Component {
     constructor(props){
@@ -30,7 +30,7 @@ export default class LampReact extends React.Component {
                         <tr>
                         </tr>
                         <tr>
-                            <td rowSpan="2" id="on"><OnOffButton lamp={this.state} /></td>
+                            <td rowSpan="2" id="on">OnOffButton  </td>
                         </tr>
                         <tr>
                         </tr>

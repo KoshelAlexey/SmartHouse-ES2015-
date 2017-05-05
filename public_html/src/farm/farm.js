@@ -12,12 +12,6 @@ import {Stove} from "./../devices/stove";
 import {Tv} from "./../devices/tv";
 import {TvPro} from "./../devices/tvpro";
 
-import {kitchen} from "./../abstractclass/collections";
-import {bedroom} from "./../abstractclass/collections";
-import {hall} from "./../abstractclass/collections";
-import {hallway} from "./../abstractclass/collections";
-
-
 
 export class Farm {
     constructor(name = "fabric"){
@@ -69,7 +63,7 @@ export class Farm {
           case 'Radio':
               (()=>{
                   map.set (["rad"+this.counters[type]], new Radio([name+this.counters[type]],type,radioList));
-                  this.counters[type].count++;
+                  this.counters[type]++;
               })();
               break;
           case 'Stove':

@@ -2,9 +2,11 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
+import {Router, Route} from "react-router-dom";
+import createHistory from "history/createBrowserHistory";
 
-import OnOffButton from "./subcomponents/onoffbutton";
-import LampReact from "./components/lamp";
+import MainRout from "./components/mainrout";
+//import LampReact from "./components/lamp";
 
 import {radioList} from "./abstractclass/lists";
 import {condList} from "./abstractclass/lists";
@@ -23,21 +25,27 @@ import {TvPro} from "./devices/tvpro";
 
 import {Farm} from "./farm/farm";
 
-import {kitchen} from "./abstractclass/collections";
-import {bedroom} from "./abstractclass/collections";
-import {hall} from "./abstractclass/collections";
-import {hallway} from "./abstractclass/collections";
+import {kitchenmap} from "./abstractclass/lists";
+import {bedroommap} from "./abstractclass/lists";
+import {hallmap} from "./abstractclass/lists";
+import {hallwaymap} from "./abstractclass/lists";
+
+    let maps = {
+        kitchen:kitchenmap,
+        bedroom:bedroommap,
+        hall:hallmap,
+        hallway:hallwaymap};
 
 
             let f = new Farm();
-            f.addDevices("C1","Conditioning",kitchen);
-            f.addDevices("C1","Conditioning",hall);
-            f.addDevices("C1","Conditioning",hall);
-            f.addDevices("C1","Conditioning",bedroom);
-            f.addDevices("C1","Conditioning",bedroom);
+//            f.addDevices("C1","Conditioning",kitchenmap);
+//            f.addDevices("C1","Conditioning",hallmap);
+//            f.addDevices("C1","Conditioning",hallmap);
+//            f.addDevices("C1","Conditioning",bedroommap);
+//            f.addDevices("C1","Conditioning",bedroommap);
+//            console.dir(kitchenmap);
 
-
-            let l = new Lamp("L1","lamp");
+//            let l = new Lamp("L1","lamp");
 
 //            let v = new Control(l);
 //            v.go();
@@ -50,5 +58,5 @@ import {hallway} from "./abstractclass/collections";
             let fr = new Fridge("fr1", "fridge");
             let c = new Conditioning("con1", "conditioning", condList);
 
-
-ReactDOM.render(<LampReact lamp={l.fullInfo}/>, document.getElementById('rowmain'));
+ReactDOM.render(<MainRout maps={maps} farm={f}/>, document.getElementById('center'));
+//ReactDOM.render(<LampReact lamp={l.fullInfo}/>, document.getElementById('rowmain'));kitchen={kitchenmap} bedroom={bedroommap} hall={hallmap} hallway={hallwaymap}
