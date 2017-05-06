@@ -13,7 +13,8 @@ export default class LampReact extends React.Component {
     }
 
     render(){
-        return (<div className="col-lg-4 col-md-6 col-sm-12">
+        return (
+        <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="location">
                 <table>
                     <tbody>

@@ -8,8 +8,6 @@ import Bedroom from "./bedroom";
 import Hall from "./hall";
 import Hallway from "./hallway";
 
-import {Farm} from ".././farm/farm";
-let fa = new Farm();
 
 export default class MainRout extends React.Component{
     constructor(props){
@@ -17,11 +15,14 @@ export default class MainRout extends React.Component{
         this.state = this.props.maps;
         this.state.farm = this.props.farm;
         this.state.inpval = "Enter Name";
-        this.state.selval = "";
+        this.state.selval = "choo";
+        this.state.r = 0;
+
         this.onChange = this.onChange.bind(this);
         this.onFocus = this.onFocus.bind(this);
         this.farm = this.farm.bind(this);
-        console.dir(this.state);
+        this.r=1;
+        this.re = this.re.bind(this);
 
     }
     onFocus(){
@@ -43,33 +44,39 @@ export default class MainRout extends React.Component{
         let p = window.location.pathname;
         switch(p){
             case "/kitchen":
-                 this.state.farm.addDevices(this.state.inpval,this.state.selval,this.state.kitchen);console.dir(this.state.kitchen);
+                 this.state.farm.addDevices(this.state.inpval,this.state.selval,this.state.kitchen);
             break;
             case "/bedroom":
-                this.state.farm.addDevices(this.state.inpval,this.state.selval,this.state.bedroom);console.dir(this.state.bedroom);
+                this.state.farm.addDevices(this.state.inpval,this.state.selval,this.state.bedroom);
             break;
             case "/hall":
-                this.state.farm.addDevices(this.state.inpval,this.state.selval,this.state.hall);console.dir(this.state.hall);
+                this.state.farm.addDevices(this.state.inpval,this.state.selval,this.state.hall);
             break;
             case "/hallway":
-                this.state.farm.addDevices(this.state.inpval,this.state.selval,this.state.hallway);console.dir(this.state.hallway);
+                this.state.farm.addDevices(this.state.inpval,this.state.selval,this.state.hallway);
             break;
         }
+        this.setState({inpval: "Enter Name"});
+        this.setState({selval:"choo"});
 
+    }
+    re(){
+        this.r++;
+        this.setState({r:this.r});
     }
 
     render(){
         const WrapK = ()=>{
-            return(<Kitchen maps={this.props.maps}/>)
+            return(<Kitchen map={this.props.maps.kitchen}/>)
         }
         const WrapB = ()=>{
-            return(<Bedroom maps={this.props.maps}/>)
+            return(<Bedroom map={this.props.maps.bedroom}/>)
         }
         const WrapH = ()=>{
-            return(<Hall maps={this.props.maps}/>)
+            return(<Hall map={this.props.maps.hall}/>)
         }
         const WrapHw = ()=>{
-            return(<Hallway maps={this.props.maps}/>)
+            return(<Hallway map={this.props.maps.hallway}/>)
         }
 
         return(
@@ -94,6 +101,7 @@ export default class MainRout extends React.Component{
                                     <Link to="/kitchen">
                                         <button type="button"
                                             className="roombutton"
+                                            onClick={this.re}
                                             name="kitchen"
                                             >Open Room
                                         </button>
@@ -109,6 +117,7 @@ export default class MainRout extends React.Component{
                                         <button type="button"
                                             className="roombutton"
                                             name="bedroom"
+                                            onClick={this.re}
                                             >Open Room
                                         </button>
                                     </Link>
@@ -118,14 +127,28 @@ export default class MainRout extends React.Component{
                                     <div className="pad">
                                     <span>Hall</span>
                                     <br />
-                                    <Link to="/hall"><button type="button" className="roombutton" name="hall">Open Room</button></Link>
+                                    <Link to="/hall">
+                                        <button type="button"
+                                            className="roombutton"
+                                            name="hall"
+                                            onClick={this.re}
+                                            >Open Room
+                                        </button>
+                                    </Link>
                                     </div>
                                 </div>
                                 <div className="col-xs-3 ">
                                     <div className="pad">
                                     <span>Hallway</span>
                                     <br />
-                                    <Link to="/hallway"><button type="button" className="roombutton" name="hallway">Open Room</button></Link>
+                                    <Link to="/hallway">
+                                        <button type="button"
+                                            className="roombutton"
+                                            name="hallway"
+                                            onClick={this.re}
+                                            >Open Room
+                                        </button>
+                                    </Link>
                                     </div>
                                 </div>
                             </div>
@@ -134,11 +157,11 @@ export default class MainRout extends React.Component{
                         <div className="row addrow">
                             <span className="selectspan" >Add devices to control panel</span>
                             <div >
-                                <select className="addmar" defaultValue="choo" onChange={this.onChange}>
+                                <select className="addmar" value={this.state.selval} onChange={this.onChange}>
                                     <option disabled value="choo">Choose Devices</option>
                                     <option>Conditioning</option>
                                     <option>Floor</option>
-                                    <option>Frige</option>
+                                    <option>Fridge</option>
                                     <option>Jalousie</option>
                                     <option>Lamp</option>
                                     <option>Radio</option>

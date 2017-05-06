@@ -20,7 +20,7 @@ export default class MainTable extends React.Component {
                         <tr>
                         </tr>
                         <tr>
-                            <td rowSpan="2" id="on"><OnOffButton /></td>
+                            <td rowSpan="2" id="on">OnOffButton </td>
                         </tr>
                         <tr>
                         </tr>

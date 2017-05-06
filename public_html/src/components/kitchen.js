@@ -3,16 +3,30 @@ import ReactDOM from "react-dom";
 import {Router, Route} from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
 
+import Lamp from "./lamp";
+import MainTable from "./maintable";
+
 export default class Kitchen extends React.Component{
     constructor(props){
         super(props);
-        this.state = this.props.maps;
+        this.state = this.props;
 
     }
-    render(){console.dir(this.state);
-        return(
-
-            <div>Kitchen</div>
+    render(){
+        let dev = [];
+        for(let a of this.state.map.values()){
+            dev.push( a);
+        }
+        console.dir(this.state);
+        console.dir(dev);
+            return(<div>
+                {dev.map((d,ind)=>{
+                    if(d.type == "Lamp"){
+                        return <Lamp d={d} key={ind}/>
+                    }
+                                   }
+                        )
+                }</div>
         )
     }
 }
