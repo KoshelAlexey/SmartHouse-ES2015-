@@ -8,13 +8,16 @@ import Bedroom from "./bedroom";
 import Hall from "./hall";
 import Hallway from "./hallway";
 
+import En from "../subcomponents/selecten";
+import Dis from "../subcomponents/selectdis";
+
 
 export default class MainRout extends React.Component{
     constructor(props){
         super(props);
         this.state = this.props.maps;
         this.state.farm = this.props.farm;
-        this.state.inpval = "Enter Name";
+        this.state.inpval = "Enter name 6 letter max";
         this.state.selval = "choo";
         this.state.r = 0;
 
@@ -33,7 +36,6 @@ export default class MainRout extends React.Component{
             case "input":
                 this.setState({inpval: event.target.value});
             break;
-
             case "select":
                 this.setState({selval: event.target.value});
             break;
@@ -56,7 +58,7 @@ export default class MainRout extends React.Component{
                 this.state.farm.addDevices(this.state.inpval,this.state.selval,this.state.hallway);
             break;
         }
-        this.setState({inpval: "Enter Name"});
+        this.setState({inpval: "Enter name 6 letter max"});
         this.setState({selval:"choo"});
 
     }
@@ -77,6 +79,52 @@ export default class MainRout extends React.Component{
         }
         const WrapHw = ()=>{
             return(<Hallway map={this.props.maps.hallway}/>)
+        }
+
+        const WrapConEn = ()=>{
+            return(<En name="Conditioning"/>)
+        }
+        const WrapFloorEn = ()=>{
+            return(<En name="Floor"/>)
+        }
+        const WrapFridgeEn = ()=>{
+            return(<En name="Fridge"/>)
+        }
+        const WrapFridgeDis = ()=>{
+            return(<Dis name="Fridge"/>)
+        }
+        const WrapJalEn = ()=>{
+            return(<En name="Jalousie"/>)
+        }
+        const WrapJalDis = ()=>{
+            return(<Dis name="Jalousie"/>)
+        }
+        const WrapLampEn = ()=>{
+            return(<En name="Lamp"/>)
+        }
+        const WrapRadioEn = ()=>{
+            return(<En name="Radio"/>)
+        }
+        const WrapRadioDis = ()=>{
+            return(<Dis name="Radio"/>)
+        }
+        const WrapStoveEn = ()=>{
+            return(<En name="Stove"/>)
+        }
+        const WrapStoveDis = ()=>{
+            return(<Dis name="Stove"/>)
+        }
+        const WrapTvEn = ()=>{
+            return(<En name="Tv"/>)
+        }
+        const WrapTvDis = ()=>{
+            return(<Dis name="Tv"/>)
+        }
+        const WrapTvProEn = ()=>{
+            return(<En name="TvPro"/>)
+        }
+        const WrapTvProDis = ()=>{
+            return(<Dis name="TvPro"/>)
         }
 
         return(
@@ -159,15 +207,40 @@ export default class MainRout extends React.Component{
                             <div >
                                 <select className="addmar" value={this.state.selval} onChange={this.onChange}>
                                     <option disabled value="choo">Choose Devices</option>
-                                    <option>Conditioning</option>
-                                    <option>Floor</option>
-                                    <option>Fridge</option>
-                                    <option>Jalousie</option>
-                                    <option>Lamp</option>
-                                    <option>Radio</option>
-                                    <option>Stove</option>
-                                    <option>Tv</option>
-                                    <option>TvPro</option>
+                                    <Route path="/" component={WrapConEn}/>
+                                    <Route path="/" component={WrapFloorEn}/>
+
+                                    <Route exact path="/kitchen" component={WrapFridgeEn}/>
+                                    <Route exact path="/bedroom" component={WrapFridgeDis}/>
+                                    <Route exact path="/hall" component={WrapFridgeDis}/>
+                                    <Route exact path="/hallway" component={WrapFridgeDis}/>
+
+                                    <Route exact path="/kitchen" component={WrapJalEn}/>
+                                    <Route exact path="/bedroom" component={WrapJalEn}/>
+                                    <Route exact path="/hall" component={WrapJalEn}/>
+                                    <Route exact path="/hallway" component={WrapJalDis}/>
+
+                                    <Route path="/" component={WrapLampEn}/>
+
+                                    <Route exact path="/kitchen" component={WrapRadioDis}/>
+                                    <Route exact path="/bedroom" component={WrapRadioEn}/>
+                                    <Route exact path="/hall" component={WrapRadioDis}/>
+                                    <Route exact path="/hallway" component={WrapRadioDis}/>
+
+                                    <Route exact path="/kitchen" component={WrapStoveEn}/>
+                                    <Route exact path="/bedroom" component={WrapStoveDis}/>
+                                    <Route exact path="/hall" component={WrapStoveDis}/>
+                                    <Route exact path="/hallway" component={WrapStoveDis}/>
+
+                                    <Route exact path="/kitchen" component={WrapTvEn}/>
+                                    <Route exact path="/bedroom" component={WrapTvEn}/>
+                                    <Route exact path="/hall" component={WrapTvDis}/>
+                                    <Route exact path="/hallway" component={WrapTvDis}/>
+
+                                    <Route exact path="/kitchen" component={WrapTvProDis}/>
+                                    <Route exact path="/bedroom" component={WrapTvProDis}/>
+                                    <Route exact path="/hall" component={WrapTvProEn}/>
+                                    <Route exact path="/hallway" component={WrapTvProDis}/>
                                 </select>
                                 <input className="addmar"
                                         type="text"

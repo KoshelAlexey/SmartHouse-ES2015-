@@ -11,27 +11,27 @@ export class TempDevicesProg extends TempDevices {
         this._workIndication = false;
     };
     get currentProg() {
-        return _currentProg;
+        return this._currentProg;
     };
     get currentTemp() {
-        return _currentTemp;
+        return this._currentTemp;
     };
     get workIndication(){
-        return _workIndication;
+        return this._workIndication;
     };
-    get fullInfo() {        
+    get fullInfo() {
         this._fullInfo.Programm = this._currentProg;
         this._fullInfo.Indication = this._workIndication;
         return this._fullInfo;
     };
-    getProg() {
+    get progList() {
         return this._progList;
     };
     setProg(a) {
         if(!isNaN(parseFloat(a))&&isFinite(a)){
             if(a < this._progList.length && a >= 0){
                 this._currentProg = this._progList[a].name;
-                this._currentTemp = this._progList[a].temp;                
+                this._currentTemp = this._progList[a].temp;
             }
         }
     };
@@ -41,6 +41,6 @@ export class TempDevicesProg extends TempDevices {
     stopProg() {
         this._workIndication = false;
     };
-    
+
 };
 

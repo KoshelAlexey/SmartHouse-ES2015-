@@ -6,12 +6,17 @@ export class MultimediaDevices extends OnOffDevices{
     constructor(name, type) {
         super(name, type);
         this._currentChanel = 1;
-        this._currentVol = 10;
+        this._currentVol = 14;
     };
     get currentVol(){
-        return this._currentVol;
+        if (this._currentOnOff === true){
+            return this._currentVol;
+        }
+        else{
+            return "--";
+        }
     };
-    get fullInfo() {        
+    get fullInfo() {
         this._fullInfo.Chanel = this._currentChanel;
         this._fullInfo.Volume = this._currentVol;
         return this._fullInfo;
@@ -19,6 +24,9 @@ export class MultimediaDevices extends OnOffDevices{
     get currentChanel() {
         if (this._currentOnOff === true){
             return this._currentChanel;
+        }
+        else{
+            return "--";
         }
     };
     set currentChanel(currentChanel) {
@@ -40,7 +48,7 @@ export class MultimediaDevices extends OnOffDevices{
             }
         }
     };
-    prewChanel() {
+    prevChanel() {
         if(this._currentOnOff === true){
             if (this._currentChanel > 0){
                 this._currentChanel --;
@@ -60,5 +68,5 @@ export class MultimediaDevices extends OnOffDevices{
             this._currentVol ++;
         }
     };
-    
+
 };

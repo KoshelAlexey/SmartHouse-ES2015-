@@ -8,7 +8,7 @@ export class Floor extends TempDevices {
         this._currentTemp = 30;
     };
     get currentTemp() {
-        return _currentTemp;
+        return this._currentTemp;
     };
     upTemp() {
         if(this._currentTemp <35){
@@ -19,5 +19,11 @@ export class Floor extends TempDevices {
         if(this._currentTemp >26){
             super.downTemp();
         }
+    };
+    maxTemp(){
+        this._currentTemp = 35;
+    };
+    minTemp(){
+        this._currentTemp = 26;
     };
 };

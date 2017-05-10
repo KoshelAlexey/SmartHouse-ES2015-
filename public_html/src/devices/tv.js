@@ -7,9 +7,9 @@ export class Tv extends MultimediaDevices {
         this._brightness = "Normal";
     };
     get brightness() {
-        return _brightness;
+        return this._brightness;
     };
-    get fullInfo() {        
+    get fullInfo() {
         this._fullInfo.Brightness = this._brightness;
         return this._fullInfo;
     };
@@ -28,5 +28,5 @@ export class Tv extends MultimediaDevices {
             this._brightness = "High";
         }
     };
-    
+
 };

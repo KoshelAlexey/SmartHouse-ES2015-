@@ -1,3 +1,61 @@
+td{
+    padding: 2px;
+}
+.mt{
+    height: 100%;
+    width: 100%;
+
+    text-align: center;
+}
+#status{
+    overflow: hidden;
+    width: 184px;
+}
+#control{
+    width: 184px;
+}
+#name{
+    width: 65px;
+    height: 2px;
+    vertical-align: middle;
+}
+.out{
+
+    font-size: 11px;
+}
+#icon{
+    height: 70px;
+}
+#on{
+    height: 45px;
+}
+
+.icon{
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid black;
+    border-radius: 25px;
+    height: 100%;
+}
+.lamp{
+    background-image: url(../jpg/lamplogo.jpg);
+}
+.jal{
+    background-image: url(../jpg/jallogo.jpg);
+}
+.floor{
+    background-image: url(../jpg/floorlogo.jpg);
+}
+.cond{
+    background-image: url(../jpg/condlogo.jpg);
+}
+.tv{
+    background-image: url(../jpg/tvlogo.jpg);
+}
+.tvpro{
+    background-image: url(../jpg/tvprologo.jpg);
+}
+
 .OnButton{
     height: 45px;
     width: 45px;
@@ -14,3 +72,30 @@
     background-position: center;
     border-radius: 50%;
 }
+.ct{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.cd{
+    /*border: 1px solid black;*/
+    width: 50%;
+}
+
+.tempBut{
+    font-size: 12px;
+    width: 54px;
+}
+.outtv{
+    background-color: white;
+}
+#min,#sec{
+    display: block;
+    width: 33px;
+    float: left;
+
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }

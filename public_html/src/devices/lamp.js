@@ -13,7 +13,7 @@ export class Lamp extends OnOffDevices {
         return this._fullInfo;
     };
     get lightTemp() {
-        return _lightTemp;
+        return this._lightTemp;
     };
     setColdTemp() {
         this._lightTemp = "Cold";
