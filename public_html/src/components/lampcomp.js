@@ -8,7 +8,7 @@ import OnOffButton from "../subcomponents/onoffbutton";
 export default class LampComp extends React.Component {
     constructor(props){
         super(props);
-        this.state = this.props;
+        this.state={obj:this.props.obj};
         this.setTemp = this.setTemp.bind(this);
     }
     setTemp(e){

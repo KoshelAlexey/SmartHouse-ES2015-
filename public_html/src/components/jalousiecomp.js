@@ -6,7 +6,7 @@ import OnOffButton from "../subcomponents/onoffbutton";
 export default class JalousieComp extends React.Component {
     constructor(props){
         super(props);
-        this.state = this.props;
+        this.state={obj:this.props.obj};
         console.dir(this.state);
         this.inc = this.inc.bind(this);
         this.dec = this.dec.bind(this);

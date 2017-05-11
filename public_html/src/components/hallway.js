@@ -7,6 +7,11 @@ import LampComp from "./lampcomp";
 import JalousieComp from "./jalousiecomp";
 import FloorComp from "./floorcomp";
 import ConditioningComp from "./conditioningcomp";
+import TvComp from "./tvcomp";
+import TvProComp from "./tvprocomp";
+import FridgeComp from "./fridgecomp";
+import RadioComp from "./radiocomp";
+import StoveComp from "./stovecomp";
 
 export default class Hallway extends React.Component{
     constructor(props){
@@ -40,6 +45,15 @@ export default class Hallway extends React.Component{
                         break;
                         case "TvPro":
                             return <TvProComp obj={obj} key={ind}/>
+                        break;
+                        case "Fridge":
+                            return <FridgeComp obj={obj} key={ind}/>
+                        break;
+                        case "Radio":
+                            return <FridgeComp obj={obj} key={ind}/>
+                        break;
+                        case "Stove":
+                            return <FridgeComp obj={obj} key={ind}/>
                         break;
                     }
                                     }
