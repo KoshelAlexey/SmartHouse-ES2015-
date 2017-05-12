@@ -13,75 +13,67 @@ import {Tv} from "./../devices/tv";
 import {TvPro} from "./../devices/tvpro";
 
 
-export class Farm {
+export class Store {
     constructor(name = "fabric"){
         this.name = name;
-        this.counters = {
-            Conditioning:0,
-            Floor:0,
-            Fridge:0,
-            Jalousie:0,
-            Lamp:0,
-            Radio:0,
-            Stove:0,
-            Tv:0,
-            TvPro:0
-        };
+//        this.counters = {
+//            Conditioning:0,
+//            Floor:0,
+//            Fridge:0,
+//            Jalousie:0,
+//            Lamp:0,
+//            Radio:0,
+//            Stove:0,
+//            Tv:0,
+//            TvPro:0
+//        };
+        this.rooms = {"kitchen":[],"bedroom":[],"hall":[],"hallway":[]};
     };
     addDevices(name, type, map){
       switch (type){
           case 'Conditioning':
               (()=>{
-                  map.set (["con"+this.counters[type]], new Conditioning(name, type, condList));
-                  this.counters[type]++;
+                  this.rooms[map].push(new Conditioning(name, type, condList));
               })();
               break;
           case 'Floor':
               (()=>{
-                  map.set (["floor"+this.counters[type]], new Floor(name,type));
-                  this.counters[type]++;
+                  this.rooms[map].push(new Floor(name,type));
               })();
               break;
           case 'Fridge':
               (()=>{
-                  map.set (["fri"+this.counters[type]], new Fridge(name,type));
-                  this.counters[type]++;
+                  this.rooms[map].push(new Fridge(name,type));
               })();
               break;
           case 'Jalousie':
               (()=>{
-                  map.set (["jal"+this.counters[type]], new Jalousie(name,type));
-                  this.counters[type]++;
+                  this.rooms[map].push(new Jalousie(name,type));
               })();
               break;
           case 'Lamp':
               (()=>{
-                  map.set (["lamp"+this.counters[type]], new Lamp(name,type));
-                  this.counters[type]++;
+                  this.rooms[map].push(new Lamp(name,type));
               })();
               break;
           case 'Radio':
               (()=>{
-                  map.set (["rad"+this.counters[type]], new Radio(name,type,radioList));
-                  this.counters[type]++;
+                  this.rooms[map].push(new Radio(name,type,radioList));
               })();
               break;
           case 'Stove':
               (()=>{
-                  map.set (["stove"+this.counters[type]], new Stove(name,type,stoveList));
-                  this.counters[type]++;
+                  this.rooms[map].push(new Stove(name,type,stoveList));
               })();
               break;
           case 'Tv':
               (()=>{
-                  map.set (["tv"+this.counters[type]], new Tv(name,type));
-                  this.counters[type]++;
+                  this.rooms[map].push(new Tv(name,type));
               })();
               break;
           case 'TvPro':
               (()=>{
-                  map.set (["tv"+this.counters[type]], new TvPro(name,type));
-                  this.counters[type]++;
+                  this.rooms[map].push(new TvPro(name,type));
               })();
               break;
       }

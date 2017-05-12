@@ -1,7 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {Router, Route} from "react-router-dom";
-import createHistory from "history/createBrowserHistory";
 
 import LampComp from "./lampcomp";
 import JalousieComp from "./jalousiecomp";
@@ -16,23 +14,17 @@ import StoveComp from "./stovecomp";
 export default class Hallway extends React.Component{
     constructor(props){
         super(props);
-        this.state = this.props;
-
+        this.state={room:this.props.room};
     }
     render(){
-        let dev = [];
-        for(let a of this.state.map.values()){
-            dev.push(a);
-        }
-
-            return(<div>
-                {dev.map((obj,ind)=>{
+        return(<div>
+                {this.state.room.map((obj,ind)=>{
                     switch (obj.type){
                         case "Lamp":
                             return <LampComp obj={obj} key={ind}/>
                         break;
                         case "Jalousie":
-                            return <JalousieComp obj={obj} key={ind}/>
+                            return <JalousieComp obj={obj} key={ind}/> 
                         break;
                         case "Floor":
                             return <FloorComp obj={obj} key={ind}/>
@@ -56,9 +48,11 @@ export default class Hallway extends React.Component{
                             return <FridgeComp obj={obj} key={ind}/>
                         break;
                     }
-                                    }
-                        )
-                }</div>
+                                                }
+                                    )
+                }
+
+                </div>
             )
     }
 }

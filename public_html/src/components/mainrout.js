@@ -15,12 +15,10 @@ import Dis from "../subcomponents/selectdis";
 export default class MainRout extends React.Component{
     constructor(props){
         super(props);
-        this.state = this.props.maps;
-        this.state.farm = this.props.farm;
+        this.state= {store:this.props.store};
         this.state.inpval = "Enter name 6 letter max";
         this.state.selval = "choo";
         this.state.r = 0;
-
         this.onChange = this.onChange.bind(this);
         this.onFocus = this.onFocus.bind(this);
         this.farm = this.farm.bind(this);
@@ -46,16 +44,16 @@ export default class MainRout extends React.Component{
         let p = window.location.pathname;
         switch(p){
             case "/kitchen":
-                 this.state.farm.addDevices(this.state.inpval,this.state.selval,this.state.kitchen);
+                 this.state.store.addDevices(this.state.inpval,this.state.selval,"kitchen");
             break;
             case "/bedroom":
-                this.state.farm.addDevices(this.state.inpval,this.state.selval,this.state.bedroom);
+                this.state.store.addDevices(this.state.inpval,this.state.selval,"bedroom");
             break;
             case "/hall":
-                this.state.farm.addDevices(this.state.inpval,this.state.selval,this.state.hall);
+                this.state.store.addDevices(this.state.inpval,this.state.selval,"hall");
             break;
             case "/hallway":
-                this.state.farm.addDevices(this.state.inpval,this.state.selval,this.state.hallway);
+                this.state.store.addDevices(this.state.inpval,this.state.selval,"hallway");
             break;
         }
         this.setState({inpval: "Enter name 6 letter max"});
@@ -69,16 +67,16 @@ export default class MainRout extends React.Component{
 
     render(){
         const WrapK = ()=>{
-            return(<Kitchen map={this.props.maps.kitchen}/>)
+            return(<Kitchen room={this.props.store.rooms.kitchen}/>)
         }
         const WrapB = ()=>{
-            return(<Bedroom map={this.props.maps.bedroom}/>)
+            return(<Bedroom room={this.props.store.rooms.bedroom}/>)
         }
         const WrapH = ()=>{
-            return(<Hall map={this.props.maps.hall}/>)
+            return(<Hall room={this.props.store.rooms.hall}/>)
         }
         const WrapHw = ()=>{
-            return(<Hallway map={this.props.maps.hallway}/>)
+            return(<Hallway room={this.props.store.rooms.hallway}/>)
         }
 
         const WrapConEn = ()=>{
