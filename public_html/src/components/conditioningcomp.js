@@ -1,41 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-
-
+import ActionButton from "../subcomponents/actionbutton";
 import OnOffButton from "../subcomponents/onoffbutton";
 
-export default class LampComp extends React.Component {
+export default class ConditioningComp extends React.Component {
     constructor(props){
         super(props);
         this.state={obj:this.props.obj};
         this.state.selval = "0";
-        this.inc = this.inc.bind(this);
-        this.dec = this.dec.bind(this);
-        this.start = this.start.bind(this);
-        this.stop = this.stop.bind(this);
-        this.onChange = this.onChange.bind(this);
-    };
-
-    inc(){
-        this.state.obj.upTemp();
-        this.setState({obj:this.props.obj});
-    };
-    dec(){
-        this.state.obj.downTemp();
-        this.setState({obj:this.props.obj});
-    };
-    start(){
-        this.state.obj.startProg();
-        this.setState({obj:this.props.obj});
-    };
-    stop(){
-        this.state.obj.stopProg();
-        this.setState({obj:this.props.obj});
-    };
+        this.onChange = this.onChange.bind(this);        
+        this.state.obj.upTemp =this.state.obj.upTemp.bind(this.state.obj);
+        this.state.obj.downTemp =this.state.obj.downTemp.bind(this.state.obj);
+        this.state.obj.startProg =this.state.obj.startProg.bind(this.state.obj);
+        this.state.obj.stopProg =this.state.obj.stopProg.bind(this.state.obj);
+        this.refresh = this.refresh.bind(this);
+    };  
+    
     onChange(event){
         this.state.obj.setProg(event.target.value);
         this.setState({selval: event.target.value});
+    };
+    refresh(){        
+        this.setState({obj:this.props.obj});
     };
 
     render(){
@@ -60,8 +47,8 @@ export default class LampComp extends React.Component {
                                 <table className="ct">
                                     <tbody>
                                         <tr>
-                                            <td className="cd"><button type="button" onClick={this.dec}>Decrease</button></td>
-                                            <td className="cd"><button type="button" onClick={this.inc}>Increase</button></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.downTemp} callback={this.refresh} name="Decrease"/></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.upTemp} callback={this.refresh} name="Increase"/></td>
                                         </tr>
                                         <tr>
                                             <td className="cd" colSpan="2">
@@ -72,8 +59,8 @@ export default class LampComp extends React.Component {
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td className="cd"><button type="button" onClick={this.stop}>Stop</button></td>
-                                            <td className="cd"><button type="button" onClick={this.start}>Start</button></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.stopProg} callback={this.refresh} name="Stop"/></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.startProg} callback={this.refresh} name="Start"/></td>
                                         </tr>
                                     </tbody>
                                 </table>

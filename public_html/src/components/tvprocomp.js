@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import ActionButton from "../subcomponents/actionbutton";
 import OnOffButton from "../subcomponents/onoffbutton";
 
 import TvComp from "./tvcomp";
@@ -54,7 +55,7 @@ export default class TvProComp extends TvComp {
                         <tr>
                             <td  rowSpan="2" className="status" id="status">
                                 <output name="name" className="out" id="outstate">Brightness of tv:{this.state.obj.brightness}</output>
-                                <output name="name" className="out" id="outtimer">{this.state.timer[0]}m {this.state.timer[1]}s</output>
+                                <output name="name" className="out" id="outtimer">Time left: {this.state.timer[0]}m {this.state.timer[1]}s</output>
                             </td>
 
                             <td id="name"><output name="name" className="out" id="outname">{this.state.obj.name}</output></td>
@@ -67,13 +68,13 @@ export default class TvProComp extends TvComp {
                                 <table className="ct">
                                     <tbody>
                                         <tr>
-                                            <td className="cd"><button type="button" onClick={this.prev}>&#60;&#60;P</button></td>
-                                            <td className="cd"><button type="button" onClick={this.next}>P&#62;&#62;</button></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.prevChanel} callback={this.refresh} name="&#60;&#60;P"/></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.nextChanel} callback={this.refresh} name="P&#62;&#62;"/></td>
                                             <td className="cd"><output name="name" className="outtv" id="outch">{this.state.obj.currentChanel}</output></td>
                                         </tr>
                                         <tr>
-                                            <td className="cd"><button type="button" onClick={this.dec}>Vol-</button></td>
-                                            <td className="cd"><button type="button" onClick={this.inc}>Vol+</button></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.decriaseVol} callback={this.refresh} name="Vol-"/></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.increaseVol} callback={this.refresh} name="Vol+"/></td>
                                             <td className="cd" ><output name="name" className="outtv" id="outvol">{this.state.obj.currentVol}</output></td>
                                         </tr>
                                         <tr>
@@ -95,7 +96,7 @@ export default class TvProComp extends TvComp {
                         <tr>
                         </tr>
                         <tr>
-                        <td rowSpan="2" id="on" onClick={this.ren}><OnOffButton obj={this.state} /></td>
+                        <td rowSpan="2" id="on" onClick={this.refresh}><OnOffButton obj={this.state} /></td>
                         </tr>
                         <tr>
                         </tr>

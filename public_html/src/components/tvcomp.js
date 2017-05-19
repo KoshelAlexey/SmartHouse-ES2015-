@@ -1,35 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import ActionButton from "../subcomponents/actionbutton";
 import OnOffButton from "../subcomponents/onoffbutton";
 
 export default class TvComp extends React.Component {
     constructor(props){
         super(props);
         this.state={obj:this.props.obj};
-        this.inc = this.inc.bind(this);
-        this.dec = this.dec.bind(this);
-        this.prev = this.prev.bind(this);
-        this.next = this.next.bind(this);
         this.setBri = this.setBri.bind(this);
-        this.ren = this.ren.bind(this);
+        this.state.obj.increaseVol =this.state.obj.increaseVol.bind(this.state.obj);
+        this.state.obj.decriaseVol =this.state.obj.decriaseVol.bind(this.state.obj);
+        this.state.obj.prevChanel =this.state.obj.prevChanel.bind(this.state.obj);
+        this.state.obj.nextChanel =this.state.obj.nextChanel.bind(this.state.obj);
+        this.refresh = this.refresh.bind(this);
     };
-    inc(){
-        this.state.obj.increaseVol();
+
+    refresh(){
         this.setState({obj:this.props.obj});
     };
-    dec(){
-        this.state.obj.decriaseVol();
-        this.setState({obj:this.props.obj});
-    };
-    prev(){
-        this.state.obj.prevChanel();
-        this.setState({obj:this.props.obj});
-    };
-    next(){
-        this.state.obj.nextChanel();
-        this.setState({obj:this.props.obj});
-    };
+
     setBri(e){
         switch (e.target.textContent){
             case "Low":
@@ -44,9 +34,6 @@ export default class TvComp extends React.Component {
         }
         this.setState({obj:this.props.obj});
     };
-    ren(){
-        this.setState({obj:this.props.obj});
-    }
 
     render(){
 
@@ -57,7 +44,7 @@ export default class TvComp extends React.Component {
                     <tbody>
                         <tr>
                             <td  rowSpan="2" className="status" id="status">
-                                <output name="name" className="out" id="outstate">Brightness of tv:{this.state.obj.brightness}</output>
+                                <output name="name" className="out" id="outstate">Brightness of TV:{this.state.obj.brightness}</output>
 
                             </td>
 
@@ -71,13 +58,13 @@ export default class TvComp extends React.Component {
                                 <table className="ct">
                                     <tbody>
                                         <tr>
-                                            <td className="cd"><button type="button" onClick={this.prev}>&#60;&#60;P</button></td>
-                                            <td className="cd"><button type="button" onClick={this.next}>P&#62;&#62;</button></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.prevChanel} callback={this.refresh} name="&#60;&#60;P"/></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.nextChanel} callback={this.refresh} name="P&#62;&#62;"/></td>
                                             <td className="cd"><output name="name" className="outtv" id="outch">{this.state.obj.currentChanel}</output></td>
                                         </tr>
                                         <tr>
-                                            <td className="cd"><button type="button" onClick={this.dec}>Vol-</button></td>
-                                            <td className="cd"><button type="button" onClick={this.inc}>Vol+</button></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.decriaseVol} callback={this.refresh} name="Vol-"/></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.increaseVol} callback={this.refresh} name="Vol+"/></td>
                                             <td className="cd" ><output name="name" className="outtv" id="outvol">{this.state.obj.currentVol}</output></td>
                                         </tr>
                                         <tr>
@@ -92,7 +79,7 @@ export default class TvComp extends React.Component {
                         <tr>
                         </tr>
                         <tr>
-                        <td rowSpan="2" id="on" onClick={this.ren}><OnOffButton obj={this.state} /></td>
+                        <td rowSpan="2" id="on" onClick={this.refresh}><OnOffButton obj={this.state} /></td>
                         </tr>
                         <tr>
                         </tr>
@@ -101,5 +88,5 @@ export default class TvComp extends React.Component {
                 </table>
             </div>
         </div>);
-    }
-}
+    };
+};

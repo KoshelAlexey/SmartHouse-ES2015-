@@ -19,7 +19,3 @@ export let stoveList = [
     {name: "Custom", temp: 0, time:"0.00"}
 ];
 
-export let kitchenmap = new Map();
-export let bedroommap = new Map();
-export let hallmap = new Map();
-export let hallwaymap = new Map();

@@ -52,6 +52,9 @@
 .tvpro{
     background-image: url(./jpg/tvprologo.jpg);
 }
+.stove{
+    background-image: url(./jpg/stovelogo.jpg);
+}
 
 .OnButton{
     height: 45px;

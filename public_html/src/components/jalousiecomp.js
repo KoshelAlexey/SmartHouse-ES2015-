@@ -1,33 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import ActionButton from "../subcomponents/actionbutton";
 import OnOffButton from "../subcomponents/onoffbutton";
 
 export default class JalousieComp extends React.Component {
     constructor(props){
         super(props);
-        this.state={obj:this.props.obj};
-        console.dir(this.state);
-        this.inc = this.inc.bind(this);
-        this.dec = this.dec.bind(this);
-        this.open = this.open.bind(this);
-        this.close = this.close.bind(this);
+        this.state={obj:this.props.obj};        
+        this.state.obj.upJal =this.state.obj.upJal.bind(this.state.obj);
+        this.state.obj.downJal =this.state.obj.downJal.bind(this.state.obj);
+        this.state.obj.openJal =this.state.obj.openJal.bind(this.state.obj);
+        this.state.obj.closeJal =this.state.obj.closeJal.bind(this.state.obj);
+        this.refresh = this.refresh.bind(this);
     };
-
-    inc(){
-        this.state.obj.upJal();
-        this.setState({obj:this.props.obj});
-    };
-    dec(){
-        this.state.obj.downJal();
-        this.setState({obj:this.props.obj});
-    };
-    open(){
-        this.state.obj.openJal();
-        this.setState({obj:this.props.obj});
-    };
-    close(){
-        this.state.obj.closeJal();
+    
+    refresh(){        
         this.setState({obj:this.props.obj});
     };
 
@@ -50,12 +38,12 @@ export default class JalousieComp extends React.Component {
                                 <table className="ct">
                                     <tbody>
                                         <tr>
-                                            <td className="cd"><button type="button" onClick={this.dec}>Decrease</button></td>
-                                            <td className="cd"><button type="button" onClick={this.inc}>Increase</button></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.downJal} callback={this.refresh} name="Decrease"/></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.upJal} callback={this.refresh} name="Increase"/></td>
                                         </tr>
                                         <tr>
-                                            <td className="cd"><button type="button" onClick={this.close}>Close</button></td>
-                                            <td className="cd"><button type="button" onClick={this.open}>Open</button></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.closeJal} callback={this.refresh} name="Close"/></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.openJal} callback={this.refresh} name="Open"/></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -73,5 +61,5 @@ export default class JalousieComp extends React.Component {
                 </table>
             </div>
         </div>);
-    }
+    };
 };

@@ -42,10 +42,10 @@ export default class Kitchen extends React.Component{
                             return <FridgeComp obj={obj} key={ind}/>
                         break;
                         case "Radio":
-                            return <FridgeComp obj={obj} key={ind}/>
+                            return <RadioComp obj={obj} key={ind}/>
                         break;
                         case "Stove":
-                            return <FridgeComp obj={obj} key={ind}/>
+                            return <StoveComp obj={obj} key={ind}/>
                         break;
                     }
                                     }

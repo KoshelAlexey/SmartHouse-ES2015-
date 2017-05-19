@@ -1,36 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-
-
+import ActionButton from "../subcomponents/actionbutton";
 import OnOffButton from "../subcomponents/onoffbutton";
 
-export default class LampComp extends React.Component {
+export default class FloorComp extends React.Component {
     constructor(props){
         super(props);
-        this.state={obj:this.props.obj};
-        this.inc = this.inc.bind(this);
-        this.dec = this.dec.bind(this);
-        this.max = this.max.bind(this);
-        this.min = this.min.bind(this);
+        this.state={obj:this.props.obj};        
+        this.state.obj.upTemp =this.state.obj.upTemp.bind(this.state.obj);
+        this.state.obj.downTemp =this.state.obj.downTemp.bind(this.state.obj);
+        this.state.obj.maxTemp =this.state.obj.maxTemp.bind(this.state.obj);
+        this.state.obj.minTemp =this.state.obj.minTemp.bind(this.state.obj);
+        this.refresh = this.refresh.bind(this);
     };
-
-    inc(){
-        this.state.obj.upTemp();
+    
+    refresh(){        
         this.setState({obj:this.props.obj});
     };
-    dec(){
-        this.state.obj.downTemp();
-        this.setState({obj:this.props.obj});
-    };
-    max(){
-        this.state.obj.maxTemp();
-        this.setState({obj:this.props.obj});
-    };
-    min(){
-        this.state.obj.minTemp();
-        this.setState({obj:this.props.obj});
-    }
 
     render(){
         return (
@@ -51,12 +38,12 @@ export default class LampComp extends React.Component {
                                 <table className="ct">
                                     <tbody>
                                         <tr>
-                                            <td className="cd"><button type="button" onClick={this.dec}>Decrease</button></td>
-                                            <td className="cd"><button type="button" onClick={this.inc}>Increase</button></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.downTemp} callback={this.refresh} name="Decrease"/></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.upTemp} callback={this.refresh} name="Increase"/></td>
                                         </tr>
                                         <tr>
-                                            <td className="cd"><button type="button" onClick={this.min}>Min t&#8451;</button></td>
-                                            <td className="cd"><button type="button" onClick={this.max}>Max t&#8451;</button></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.minTemp} callback={this.refresh} name="Min t&#8451;"/></td>
+                                            <td className="cd"><ActionButton action={this.state.obj.maxTemp} callback={this.refresh} name="Max t&#8451;"/></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -74,5 +61,5 @@ export default class LampComp extends React.Component {
                 </table>
             </div>
         </div>);
-    }
+    };
 };

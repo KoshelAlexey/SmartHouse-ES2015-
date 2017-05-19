@@ -10,7 +10,7 @@ export default class LampComp extends React.Component {
         super(props);
         this.state={obj:this.props.obj};
         this.setTemp = this.setTemp.bind(this);
-    }
+    };
     setTemp(e){
         switch (e.target.textContent){
             case "Cold":
@@ -22,9 +22,9 @@ export default class LampComp extends React.Component {
             case "Warm":
                 this.state.obj.setWarmTemp();
             break;
-        }
+        };
         this.setState({obj:this.props.obj});
-    }
+    };
 
     render(){
 
@@ -69,6 +69,6 @@ export default class LampComp extends React.Component {
                 </table>
             </div>
         </div>);
-    }
+    };
 
 };

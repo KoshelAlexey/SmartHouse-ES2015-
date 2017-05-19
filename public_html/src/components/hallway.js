@@ -24,7 +24,7 @@ export default class Hallway extends React.Component{
                             return <LampComp obj={obj} key={ind}/>
                         break;
                         case "Jalousie":
-                            return <JalousieComp obj={obj} key={ind}/> 
+                            return <JalousieComp obj={obj} key={ind}/>
                         break;
                         case "Floor":
                             return <FloorComp obj={obj} key={ind}/>
@@ -42,10 +42,10 @@ export default class Hallway extends React.Component{
                             return <FridgeComp obj={obj} key={ind}/>
                         break;
                         case "Radio":
-                            return <FridgeComp obj={obj} key={ind}/>
+                            return <RadioComp obj={obj} key={ind}/>
                         break;
                         case "Stove":
-                            return <FridgeComp obj={obj} key={ind}/>
+                            return <StoveComp obj={obj} key={ind}/>
                         break;
                     }
                                                 }
